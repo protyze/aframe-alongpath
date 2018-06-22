@@ -103,7 +103,6 @@
 	    },
 
 	    tick: function (time, timeDelta) {
-	        console.log(this);
 	        var curve = this.curve.components['curve'] ? this.curve.components['curve'].curve : null;
 
 	        if (curve) {
