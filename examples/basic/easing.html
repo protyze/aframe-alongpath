@@ -1,0 +1,69 @@
+<!DOCTYPE>
+<html>
+<head>
+    <script src="../build.js"></script>
+</head>
+<body>
+<a-scene inspector="url: https://rawgit.com/aframevr/aframe-inspector/master/dist/aframe-inspector.min.js">
+    <a-assets>
+    </a-assets>
+
+    <a-text value="easeIn" color="red" position="-3.5 3 -3" width="4"></a-text>
+    <a-curve id="track1">
+		<a-curve-point position="-2 3 -3" geometry="primitive:box; height:0.1; width:0.1; depth:0.1" material="color:#ff0000"></a-curve-point>
+        <a-curve-point position="0 2 -3" geometry="primitive:box; height:0.1; width:0.1; depth:0.1" material="color:#ff0000"></a-curve-point>
+        <a-curve-point position="2 3 -3" geometry="primitive:box; height:0.1; width:0.1; depth:0.1" material="color:#ff0000"></a-curve-point>
+	</a-curve>
+
+    <a-text value="easeOut" color="red" position="-3.5 2 -3" width="4"></a-text>
+    <a-curve id="track2">
+        <a-curve-point position="-2 2 -3" geometry="primitive:box; height:0.1; width:0.1; depth:0.1" material="color:#ff0000"></a-curve-point>
+        <a-curve-point position="0 1 -3" geometry="primitive:box; height:0.1; width:0.1; depth:0.1" material="color:#ff0000"></a-curve-point>
+        <a-curve-point position="2 2 -3" geometry="primitive:box; height:0.1; width:0.1; depth:0.1" material="color:#ff0000"></a-curve-point>
+    </a-curve>
+
+    <a-text value="easeInOut" color="red" position="-3.5 1 -3" width="4"></a-text>
+    <a-curve id="track3">
+        <a-curve-point position="-2 1 -3" geometry="primitive:box; height:0.1; width:0.1; depth:0.1" material="color:#ff0000"></a-curve-point>
+        <a-curve-point position="0 0 -3" geometry="primitive:box; height:0.1; width:0.1; depth:0.1" material="color:#ff0000"></a-curve-point>
+        <a-curve-point position="2 1 -3" geometry="primitive:box; height:0.1; width:0.1; depth:0.1" material="color:#ff0000"></a-curve-point>
+    </a-curve>
+
+    <a-text value="linear (default)" color="red" position="-3.5 0 -3" width="4"></a-text>
+    <a-curve id="track4">
+        <a-curve-point position="-2 0 -3" geometry="primitive:box; height:0.1; width:0.1; depth:0.1" material="color:#ff0000"></a-curve-point>
+        <a-curve-point position="0 -1 -3" geometry="primitive:box; height:0.1; width:0.1; depth:0.1" material="color:#ff0000"></a-curve-point>
+        <a-curve-point position="2 0 -3" geometry="primitive:box; height:0.1; width:0.1; depth:0.1" material="color:#ff0000"></a-curve-point>
+    </a-curve>
+
+    <a-box color="#ff0000" width="0.1" height="0.3" depth="0.1"
+           alongpath="curve: #track1; loop:true; dur:6000; rotate:true; easing: easeIn">
+    </a-box>
+
+    <a-box color="#ff0000" width="0.1" height="0.3" depth="0.1"
+           alongpath="curve: #track2; loop:true; dur:6000; rotate:true; easing: easeOut">
+    </a-box>
+
+    <a-box color="#ff0000" width="0.1" height="0.3" depth="0.1"
+           alongpath="curve: #track3; loop:true; dur:6000; rotate:true; easing: easeInOut">
+    </a-box>
+
+    <a-box color="#ff0000" width="0.1" height="0.3" depth="0.1"
+           alongpath="curve: #track4; loop:true; dur:6000; rotate:true;">
+    </a-box>
+
+    <a-draw-curve curveref="#track1" material="shader: line; color: red;"></a-draw-curve>
+    <a-draw-curve curveref="#track2" material="shader: line; color: red;"></a-draw-curve>
+    <a-draw-curve curveref="#track3" material="shader: line; color: red;"></a-draw-curve>
+    <a-draw-curve curveref="#track4" material="shader: line; color: red;"></a-draw-curve>
+
+    <a-entity id="player" position="0 0 0">
+        <a-camera>
+            <a-cursor></a-cursor>
+        </a-camera>
+    </a-entity>
+
+    <a-sky id="sky" color="#000"></a-sky>
+</a-scene>
+</body>
+</html>
