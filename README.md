@@ -22,6 +22,7 @@ With this Version it is now possible to promote single path-points to be "Trigge
 | loop     | Whether or not the animation should loop                                             | false         |
 | rotate   | Whether or not the Entity should adjust it's rotation while moving along the path    | false         |
 | resetonplay   | Whether or not the Movement on the path should be reset on the play event    | true         |
+| easing   | Defines how the animation between two points is eased. Available options are: `easeIn`, `easeOut`, `easeInOut`, `linear` | 'linear'      |
 
 ### Events
 

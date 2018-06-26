@@ -18,7 +18,8 @@ AFRAME.registerComponent('alongpath', {
         delay: {default: 0},
         loop: {default: false},
         rotate: {default: false},
-        resetonplay: {default:true}
+        resetonplay: {default:true},
+        easing: {default: 'linear'}
     },
 
     init: function () {
@@ -68,6 +69,22 @@ AFRAME.registerComponent('alongpath', {
       } else {
         // Update path position based on timing
         i = (interval - delay) / dur;
+
+        // Easing functions based on https://gist.github.com/gre/1650294
+        switch (this.data.easing) {
+            case 'easeInOut':
+                i = i<.5 ? 2*i*i : -1+(4-2*i)*i;
+                break;
+            case 'easeIn':
+                i = i * i;
+                break;
+            case 'easeOut':
+                i = i * (2-i);
+                break;
+            case 'linear':
+            default:
+                break;
+        }
       }
 
       return i
