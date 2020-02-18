@@ -143,6 +143,7 @@
 	                    // We have reached the end of the path
 	                    // but we are looping through the curve,
 	                    // so restart here.
+	                    this.el.removeState("moveonpath");
 	                    this.el.emit("movingended");
 	                    this.interval = this.data.delay;
 	                } else {
@@ -219,6 +220,7 @@
 	    }
 
 	});
+
 
 /***/ })
 /******/ ]);
